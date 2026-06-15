@@ -1,14 +1,14 @@
 # --- Runs ESU patching commands on list of machines remotely --- #
 
 # Captures date for output file creation
-$dateRan = Get-Date -Format "MM-dd-yyyy HH-mm-ss"
+$dateRan = Get-Date -Format "yyyyMMdd-HHmmss"
 
 # Sets throttle limit for parallel execution
 $throttleLimit = 15
 
 # Set paths for computer list and output files
 $computerList = "C:\Scripts\ESU\computers.csv"
-$outputTxt    = "C:\Scripts\ESU\slmgr-results - $($dateRan) .txt"
+$outputTxt    = "C:\Scripts\ESU\slmgr-results-$($dateRan).txt"
 
 # Import computer list - start column in CSV with 'ComputerName'
 $computers = Import-Csv -Path $computerList | Select-Object -ExpandProperty ComputerName
