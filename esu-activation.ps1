@@ -1,8 +1,11 @@
 # --- Runs ESU patching commands on list of machines remotely --- #
 
+# Captures date for output file creation
+$dateRan = Get-Date -Format "yyyyMMdd-HHmmss"
+
 # Set paths for computer list and output files
 $computerList = "C:\Scripts\ESU\computers.csv"
-$outputTxt    = "C:\Scripts\ESU\slmgr-results.txt"
+$outputTxt    = "C:\Scripts\ESU\slmgr-results-$($dateRan).txt"
 
 # Import computer list - start column in CSV with 'ComputerName'
 $computers = Import-Csv -Path $computerList
